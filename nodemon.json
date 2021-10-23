@@ -1,0 +1,9 @@
+{
+  "execMap": {
+    "js": "tsc; node dist/src/"
+  },
+  "watch": [
+    "src/"
+  ],
+  "ext": "ts"
+}

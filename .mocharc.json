@@ -1,0 +1,6 @@
+{
+  "full-trace": false,
+  "parallel": true,
+  "spec": "dist/test/**/*.spec.js",
+  "recursive": true
+}
