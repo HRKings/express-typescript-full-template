@@ -1,5 +1,7 @@
 import { Request, Response } from 'express';
 
+import { isProductionEnvironment } from './Utilities.js';
+
 export function NotFoundHandler(request: Request, response: Response, next: any) {
   response.status(404);
   const error = new Error(`🔍 - Not Found - ${request.originalUrl}`);
@@ -12,6 +14,6 @@ export function ErrorHandler(error: Error, request: Request, response: Response)
   response.status(statusCode);
   response.json({
     message: error.message,
-    stack: process.env.NODE_ENV === 'production' ? '🥞 Nothing to see here 🥞' : error.stack,
+    stack: isProductionEnvironment ? '🥞 Nothing to see here 🥞' : error.stack,
   });
 }
