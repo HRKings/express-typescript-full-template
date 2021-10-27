@@ -5,9 +5,9 @@
   "description": "A basic starter template for a express API with typescript support",
   "main": "dist/src/index.js",
   "scripts": {
-    "start": "tsc; node ./dist/src/",
+    "start": "tsc; node dist/src/",
     "dev": "tsc; nodemon",
-    "lint": "eslint --ext 'ts' --fix ./src/",
+    "lint": "eslint --ext 'ts' --fix src/",
     "test": "tsc; mocha"
   },
   "repository": {
