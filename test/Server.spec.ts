@@ -1,12 +1,18 @@
-import { describe, it } from 'mocha';
+import { describe, it, before } from 'mocha';
 import request from 'supertest';
 
-import server from '../src/Server.js';
+import ServerConfig from '../src/ServerConfig.js';
 
 describe('Server', () => {
+  let server: ServerConfig;
+
+  before(() => {
+    server = new ServerConfig();
+  });
+
   describe('Not Found Handler', () => {
     it('should respond with a not found message', (done) => {
-      request(server)
+      request(server.expressInstance)
         .get('/this-does-not-exist')
         .set('Accept', 'application/json')
         .expect('Content-Type', /text/)
@@ -16,7 +22,7 @@ describe('Server', () => {
 
   describe('GET /', () => {
     it('should respond with a JSON message', (done) => {
-      request(server)
+      request(server.expressInstance)
         .get('/')
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)

@@ -1,12 +1,18 @@
-import { describe, it } from 'mocha';
+import { describe, it, before } from 'mocha';
 import request from 'supertest';
 
-import server from '../src/Server.js';
+import ServerConfig from '../src/ServerConfig.js';
 
 describe('Sample Controller', () => {
+  let server: ServerConfig;
+
+  before(() => {
+    server = new ServerConfig();
+  });
+
   describe('GET /api/v1', () => {
     it('responds with a json message', (done) => {
-      request(server)
+      request(server.expressInstance)
         .get('/api/v1')
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
@@ -18,7 +24,7 @@ describe('Sample Controller', () => {
 
   describe('GET /api/v1/emojis', () => {
     it('responds with a json message', (done) => {
-      request(server)
+      request(server.expressInstance)
         .get('/api/v1/emojis')
         .set('Accept', 'application/json')
         .expect('Content-Type', /json/)
@@ -28,7 +34,7 @@ describe('Sample Controller', () => {
 
   describe('POST /api/v1/name', () => {
     it('should respond with a JSON message containing the name', (done) => {
-      request(server)
+      request(server.expressInstance)
         .post('/api/v1/name')
         .send({ name: 'Test' })
         .set('Accept', 'application/json')
