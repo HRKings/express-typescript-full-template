@@ -1,3 +1,4 @@
+import dotenv from 'dotenv';
 import { describe, it, before } from 'mocha';
 import request from 'supertest';
 
@@ -7,6 +8,7 @@ describe('Sample Controller', () => {
   let server: ServerConfig;
 
   before(() => {
+    dotenv.config({ path: '.testing.env' });
     server = new ServerConfig();
   });
 
