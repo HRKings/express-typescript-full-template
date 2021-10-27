@@ -15,7 +15,7 @@ describe('Server', () => {
       request(server.expressInstance)
         .get('/this-does-not-exist')
         .set('Accept', 'application/json')
-        .expect('Content-Type', /text/)
+        .expect('Content-Type', /json/)
         .expect(404, done);
     });
   });
