@@ -1,12 +1,17 @@
 export interface DatabaseOptions {
-  DatabaseDialect: string,
-  Host: string,
-  Port?: string,
-  Username: string,
-  Password: string,
-  DatabaseName: string,
+  ClientType: 'postgres' | 'sqlite' | 'mariadb' | 'mysql' | 'mssql',
+  ConnectionString?: string,
+  Host?: string,
+  Port?: number,
+  User?: string,
+  Password?: string,
+  Schema?: string,
+  DatabaseName?: string,
+  Filename?: string,
+  UseNullAsDefault?: boolean,
 }
 
 export interface ServerOptions {
+  Port?: number,
   Database?: DatabaseOptions,
 }
