@@ -4,6 +4,7 @@ export interface DatabaseOptions {
   Port?: string,
   Username: string,
   Password: string,
+  DatabaseName: string,
 }
 
 export interface ServerOptions {
