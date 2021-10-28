@@ -8,7 +8,9 @@
     "start": "tsc; node dist/src/",
     "dev": "tsc; nodemon",
     "lint": "eslint --ext 'ts' --fix src/",
-    "test": "tsc; mocha"
+    "test": "tsc; mocha",
+    "knex:migration": "knex --knexfile dist/database/knexfile.js --esm --env main",
+    "knex:migration:add": "knex --knexfile dist/database/knexfile.js --esm --env make migrate:make"
   },
   "repository": {
     "type": "git",
