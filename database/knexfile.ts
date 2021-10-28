@@ -26,6 +26,10 @@ const config = {
       extension: 'ts',
       directory: '../../database/migrations',
     },
+    seeds: {
+      extension: 'ts',
+      directory: '../../database/seeds',
+    },
   },
 };
 
