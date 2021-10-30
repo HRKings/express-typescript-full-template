@@ -21,6 +21,9 @@
     "no-console": "off",
     "no-restricted-syntax": "off",
     "guard-for-in": "off",
-    "max-len": "off"
+    "max-len": "off",
+    "consistent-return": "off",
+    "object-curly-newline": "off",
+    "import/prefer-default-export": "off"
   }
 }
