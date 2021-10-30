@@ -1,26 +1,19 @@
-import knex from 'knex';
-import { DatabaseOptions } from '../types/ServerOptions.js';
-import { defaultDatabasePorts } from '../utils/Utilities.js';
+/* eslint-disable import/prefer-default-export */
+import knex, { Knex } from 'knex';
 
-export default class DatabaseService {
-  dbConnection;
+import { isTestingEnvironment } from '@/utils/Utilities';
 
-  options: DatabaseOptions;
+let knexInstance: Knex;
 
-  constructor(options: DatabaseOptions, connectionParameters?: any) {
-    this.options = options;
-
-    this.dbConnection = knex({
-      client: options.ClientType === 'mariadb' ? 'mysql' : options.ClientType,
-      connection: connectionParameters || options.ConnectionString || {
-        host: options.Host,
-        port: options.ClientType === 'sqlite' ? undefined : options.Port || defaultDatabasePorts[options.ClientType],
-        user: options.User,
-        password: options.Password,
-        database: options.DatabaseName,
-        filename: options.ClientType === 'sqlite' ? options.Filename : undefined,
-      },
-      useNullAsDefault: options.UseNullAsDefault || true,
+export const knexConnection = (): Knex => {
+  if (!knexInstance) {
+    knexInstance = knex({
+      client: 'postgres',
+      connection: process.env.DATABASE_CONNECTION_STRING,
+      useNullAsDefault: true,
+      searchPath: isTestingEnvironment() ? 'testing_site' : 'public',
     });
   }
-}
+
+  return knexInstance;
+};
