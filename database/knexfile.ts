@@ -1,34 +1,20 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/first */
+require('tsconfig-paths/register');
+
 import dotenv from 'dotenv';
-import { isProductionEnvironment } from '../src/utils/Utilities.js';
+import { isProductionEnvironment, isTestingEnvironment } from '@/utils/Utilities';
 
 if (!isProductionEnvironment()) {
-  dotenv.config({ path: '../../.env' });
+  dotenv.config({ path: isTestingEnvironment() ? '../testing.env' : '../.env' });
 }
 
 const config = {
   main: {
     client: 'postgresql',
-    connection: process.env.DATABASE_CONNECTION_STRING || {
-      host: process.env.DATABASE_HOST,
-      port: process.env.DATABASE_PORT,
-      user: process.env.DATABASE_USER,
-      password: process.env.DATABASE_PASSWORD,
-      database: process.env.DATABASE_NAME,
-    },
+    connection: process.env.DATABASE_CONNECTION_STRING,
     migrations: {
       extension: 'ts',
-    },
-  },
-
-  make: {
-    client: 'postgresql',
-    migrations: {
-      extension: 'ts',
-      directory: '../../database/migrations',
-    },
-    seeds: {
-      extension: 'ts',
-      directory: '../../database/seeds',
     },
   },
 };
