@@ -1,5 +1,5 @@
 export interface Pokemon {
   id: number,
-  national_pokedex_index: number,
+  nationalDexNumber: number,
   name: string,
 }
