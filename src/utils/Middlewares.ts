@@ -2,7 +2,7 @@
 
 import { NextFunction, Request, Response } from 'express';
 
-import { isProductionEnvironment } from './Utilities.js';
+import { isProductionEnvironment } from '@/utils/Utilities';
 
 export function NotFoundHandler(request: Request, response: Response, next: NextFunction) {
   response.status(404);
