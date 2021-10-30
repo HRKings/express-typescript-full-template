@@ -1,6 +1,7 @@
 {
-  "full-trace": false,
-  "parallel": true,
-  "spec": "dist/test/**/*.spec.js",
-  "recursive": true
+  "full-trace": true,
+  "extension": ["ts"],
+  "spec": "test/**/*.spec.ts",
+  "recursive": true,
+  "require": ["ts-node/register", "tsconfig-paths/register", "./test/scripts/MochaRooks.ts"]
 }
