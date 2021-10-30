@@ -1,11 +1,7 @@
-import dotenv from 'dotenv';
+import Server from '@/Server';
 
-import ServerConfig from './ServerConfig.js';
+const port = Number(process.env.EXPRESS_PORT) || 5000;
 
-dotenv.config();
-
-const server = new ServerConfig();
-
-server.expressInstance.listen(server.options.Port, () => {
-  console.info(`The server is open and listening on 'http://localhost:${server.options.Port}'`);
+Server.listen(port, () => {
+  console.info(`The server is open and listening on 'http://localhost:${port}'`);
 });
