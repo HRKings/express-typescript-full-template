@@ -1,12 +1,15 @@
-# Express Typescript Template
+# Express Typescript Full Template
 
-This repository contains a feature packed Express server template, including a basic architecture and developer tools to make the DX very friendly.
+This repository contains a truly feature packed Express server template, including a basic architecture, tools for database access and developer tools to make the DX very friendly.
+
+If you are looking for a more simple template, you can take a look on the other [express-typescript-template](https://github.com/HRKings/express-typescript-template)
 
 # What's used
 
-* NodeJS [version 16.10+]
-* TypeScript [version 4.4.4+]
-* pnpm (a very fast and disk efficient package manager) [version 6.18.0+]
+* **NodeJS** [version 16.13+]
+* **TypeScript** [version 4.4.4+]
+* **pnpm** (a very fast and disk efficient package manager) [version 6.18.0+]
+* **Babel** (an alternative JS toolchain with support for TS) [version 7.16]
 
 # What's included
 
@@ -18,15 +21,23 @@ API Server utilities:
   * Helps you secure your Express apps by setting various HTTP headers
 * [dotenv](https://www.npmjs.com/package/dotenv)
   * Loads environment variables from a `.env` file into `process.env`
+* [knex](https://www.npmjs.com/package/knex)
+  * A powerful SQL query builder
+  * The default included driver is for [PostgresSQL](https://www.npmjs.com/package/pg)
 
 Development utilities:
 
-* [nodemon](https://www.npmjs.com/package/nodemon)
-  * Hot Reloading support during the development
+* [ts-node-dev](https://www.npmjs.com/package/ts-node-dev)
+  * TypeScript Hot Reloading support during the development
+* [ts-node](https://www.npmjs.com/package/ts-node)
+  * Run TypeScript files directly
 * [eslint](https://www.npmjs.com/package/eslint)
   * A powerful linting tool
 * [mocha](https://www.npmjs.com/package/mocha)
   * ☕️ Simple and flexible testing framework
+* [chai](https://www.npmjs.com/package/chai)
+  * More assertions for Mocha
+  * [chai-things](https://www.npmjs.com/package/chai-things) is also included, for easy testing of array elements
 * [supertest](https://www.npmjs.com/package/supertest)
   * HTTP assertions for API testing
 
