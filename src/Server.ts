@@ -9,7 +9,7 @@ import { NotFoundHandler, ErrorHandler } from '@/utils/Middlewares';
 import { isProductionEnvironment, isTestingEnvironment } from '@/utils/Utilities';
 
 // Import controllers and routers
-import VersionedAPIRouter from '@/controllers/VersionedAPIRouter';
+import APIv1Router from '@/controllers/APIv1Router';
 
 // Load the .env
 dotenv.config();
@@ -37,7 +37,7 @@ server.get('/', (_, response) => {
 });
 
 // Set the API Router to use the '/api/v1' route
-server.use('/api/v1', VersionedAPIRouter);
+server.use('/api/v1', APIv1Router);
 
 // Add the Not Found Handler and the Error Handler
 // (order matters, as we only handle and error if there's nothing more to do with it)

@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { catchPokemon, createTrainer, getAllTrainers, getTrainerByID, getTrainerPokemons } from '@/data/TrainerRepository';
+import { catchPokemon, createTrainer, getAllTrainers, getTrainerByID, getTrainerPokemons } from '@/services/TrainerService';
 
 const router = Router();
 

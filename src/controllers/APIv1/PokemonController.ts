@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { createPokemon, getAllPokemons, getPokemonByID } from '@/data/PokemonRepository';
+import { createPokemon, getAllPokemons, getPokemonByID } from '@/services/PokemonService';
 
 const router = Router();
 
