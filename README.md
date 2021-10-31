@@ -78,5 +78,22 @@ pnpm test
 If you just want to compile your code and run (in a production environment for example), just use:
 
 ```
+pnpm run build
 pnpm start
+```
+
+## Migrations and Seeds
+
+A Knex alias point to the knexfile on the `database` folder is provided via `pnpm run knex`. How to use:
+
+```bash
+# You can run any Knex command with this alias, just pass a command after the 'knex'
+pnpm run knex migrate:latest
+pnpm run knex migrate:rollback
+
+# Adds a new migration to the database/migrations folder
+pnpm run knex:migration:add 'ExampleMigration'
+
+# Adds a new seed to the database/seeds folder
+pnpm run knex:seed:add 'ExampleSeed'
 ```
