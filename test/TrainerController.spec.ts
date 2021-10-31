@@ -1,10 +1,10 @@
 import { describe, it, before } from 'mocha';
 import { expect } from 'chai';
-
 import request from 'supertest';
 
 import Server from '@/Server';
-import { createTrainer } from '@/data/TrainerRepository';
+
+import { createTrainer } from '@/services/TrainerService';
 
 describe('Trainer Controller', () => {
   describe('POST /api/v1/trainer/create', () => {

@@ -4,7 +4,7 @@ import request from 'supertest';
 
 import Server from '@/Server';
 
-import { createPokemon } from '@/data/PokemonRepository';
+import { createPokemon } from '@/services/PokemonService';
 
 describe('Pokemon Controller', () => {
   describe('POST /api/v1/pokemon/create', () => {
