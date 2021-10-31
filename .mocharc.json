@@ -3,5 +3,5 @@
   "extension": ["ts"],
   "spec": "test/**/*.spec.ts",
   "recursive": true,
-  "require": ["ts-node/register", "tsconfig-paths/register", "./test/scripts/MochaRooks.ts"]
+  "require": ["ts-node/register", "tsconfig-paths/register", "./test/scripts/MochaHooks.ts"]
 }
